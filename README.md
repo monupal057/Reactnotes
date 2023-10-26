@@ -66,7 +66,7 @@ information, scripts, etc., it specifies the project's metadata and its dependen
 ### Q. 6 What is the Difference between react and react native? Which one is library or framework?
 
 |React JS | React-Native|
-|---- | ----|
+|---- | |----|
 |JS Library | Mobile Framework|
 |Use to build web application | use to build cross-plateform mobile application.|
 |V-DOM render data on browser | Native API for mobile components rendering|
@@ -75,7 +75,7 @@ information, scripts, etc., it specifies the project's metadata and its dependen
 ### H/W Q7. Difference b/w Stateful and stateless Component?
 
 | Statfull| Stateless |
-|----| ----- |
+|----| |----- |
 |statefull component are those components which have a state|  | A state is an object inside the constructor method of a class which is a must in the stateful component|
 |It stores information about thecomponent’s state change in memory|  |It is used for internalcommunication inside a component|
 
@@ -89,3 +89,29 @@ information, scripts, etc., it specifies the project's metadata and its dependen
   4. Scripts
   5. Security
   6. Open Source and Community
+
+
+ ### Day - 2
+   ##Q-1. what is an event in react?
+   In React, an "event" refers to a specific action or occurrence that can be detected and handled within a React component. Events are typically interactions or behaviors triggered by the user, such as clicking a button, submitting a form, hovering over an element, or pressing a key on the keyboard.
+
+  Events in React are similar to events in standard JavaScript and the DOM, but React provides a unified way to work with events and handle them in a consistent manner. React's event system is synthetic and abstracts away many cross-browser inconsistencies, making it easier to work with events in a React application.some example of it.
+ 1. Event Handing
+ 2.Event Blinding
+ a.'onClick'
+ b.'onSubmit'
+ c.'onMouseOver'
+ 3.Event Object
+
+Q2. What is the package name you are using for routing?
+   Name of the packege is React Router DOM.
+   install => npm install / i react-router-dom
+
+Q3. What is lazy loading Effect in react?.
+    Lazy loading in React refers to a technique used to load certain parts of a web application only when they are needed, rather than loading all components and assets upfront. This can significantly improve the initial loading time and performance of your application, especially when it contains large and complex components or routes.
+
+  In React, you can implement lazy loading using dynamic imports and React's Suspense component. Here's how it works:
+
+  Dynamic Imports: Instead of importing a component directly, you use dynamic imports to load the component when it's needed. Dynamic imports return a promise that resolves with the component once it's loaded. This is typically done using the import() function.
+
+ Suspense: React's Suspense component allows you to wrap the dynamically imported component and specify a fallback UI to display while the component is loading. This ensures that your application remains responsive.
