@@ -178,8 +178,50 @@ Regarding React.js and SEO, it's true that React.js applications can face challe
 
 React.js does support SEO, but it requires implementing the right techniques to ensure that search engines can effectively crawl and index your content. Server-side rendering, static site generation, and proper meta tag usage are some of the strategies that can be employed to improve the SEO of React.js applications.
 
-## Q-7 
+## Day- 4
+ 
+ ** Q-1 Difference between callback and useCallback Hook ?
+callback : A callback function in React is a function that you can pass as a prop to child components, allowing those child components to communicate back to the parent component. This is a general concept and not specific to hooks. Callback functions are often used to achieve component interaction and data flow in React applications. They can be used to handle events or pass data between components, especially when using props.
+useCallback Hooks : useCallback is a hook provided by React that is used to optimize the performance of your functional components. It's specifically designed to address the issue of unnecessary re-rendering in cases where the dependencies of a function (usually event handlers) change, but you want to avoid recreating the function itself.
+ 
 
+**Q-2 Why do we need keys in react less?
+In the context of React, memory leaks can occur when components are not properly cleaned up after they are no longer needed. This can happen when references to components or data are not removed, preventing the JavaScript garbage collector from reclaiming the memory. Here are some common scenarios in React where memory leaks might occur and how to overcome them
+Unsubscribing from Subscriptions and Event Listeners: If your component subscribes to external data sources or sets up event listeners (like subscriptions to APIs, WebSocket connections, or global event listeners), it's important to unsubscribe or remove these listeners when the component is no longer needed. Failing to do so can keep the component in memory even if it's not being displayed.
 
+Solution: Use the appropriate lifecycle method or React hook to unsubscribe or remove event listeners when the component is unmounted. For class components, you can use componentWillUnmount. For functional components, you can use the useEffect hook with a cleanup function.
+Clearing Timers and Intervals: If your component sets up timers or intervals using setTimeout or setInterval, it's crucial to clear them when the component is unmounted. Otherwise, these timers will continue to run and keep the component in memory.
 
+Solution: Use clearTimeout and clearInterval to cancel timers and intervals in the component's cleanup process (usually in componentWillUnmount for class components or the cleanup function in useEffect for functional components).
+Holding References to Unused Data: Storing references to data that is no longer needed can prevent the garbage collector from reclaiming memory.
 
+Solution: Make sure to nullify or clear references to data that is no longer required, especially if it's a large object or array. This will allow the garbage collector to identify the memory as no longer in use.
+Optimizing State Management: In React, excessive use of state can lead to memory leaks if not managed properly. Components that store large amounts of data in state might not release memory as expected.
+
+Solution: Consider using libraries like Redux or React Context for centralized state management, especially for data that needs to be shared among multiple components. Also, make sure to clean up any unnecessary state when a component is unmounted.
+
+**Q-3 What is UseMemo Hook ?
+
+useMemo is a React hook that allows you to memoize the result of a function, and recompute the result only when the dependencies of the function have changed.
+In simple terms, useMemo can be used to optimize the performance of your React components by avoiding unnecessary re-renders.
+useMemo is a React hook that can be used to memoize the result of a function and optimize the performance of your components. By avoiding unnecessary re-renders, you can create faster and more efficient React applications.
+
+** Q-4 What is UseRef Hook ?
+useRef is a hook in React that provides a way to create a mutable reference to a DOM element or to persist values across renders without causing re-renders.
+In React, the useRef hook is used to access and interact with DOM elements or to store mutable values that won't trigger a re-render when they change.
+useRef is a React hook that allows you to create a mutable reference to an element or value, which persists across re-renders of your component.
+It returns an object with a single property, current, which initially holds the value passed as argument (or undefined if no argument is provided). We can modify the current property without triggering a re-render of the component. This makes it useful for managing mutable values and for accessing the underlying DOM elements.
+
+** Q-5  What is UseReducer Hook ?
+It does very similiar to setState, It's a different way to manage state using Redux Pattern. Instead of updating the state directly, we dispatch actions, that go to a reducer function, and this function figure out, how to compute the next state.
+Syntax
+const [state, dispatch] = useReducer(reducer, initialstate)
+state - Name of your state variable
+dispatch - if i want to change the state variable, we need dispatch function. has one parameter action.
+reducer - it is a function, that accept currect state and action we want to perform.
+initialstate - The initial value of state
+
+Q-6 Difference between useEffect and useContext ?
+useEffect : useEffect is used to handle side effects in functional components. Side effects are actions that are not directly related to rendering the component, such as data fetching, subscribing to a WebSocket, manipulating the DOM, etc. This hook allows you to perform these side effects after the component has rendered or when certain dependencies have changed.
+useContext : useContext is used to consume data from the React context API within functional components. Context provides a way to share data, like a global state, between components without passing props through each level of the component tree. The useContext hook allows you to access the value of a context directly within a component.
+so useEffect is for managing side effects and performing actions after rendering. and useContext is for consuming data fron the context API and accessing global state within a component.
